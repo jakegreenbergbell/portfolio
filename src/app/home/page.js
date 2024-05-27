@@ -2,44 +2,51 @@
 
 import styled from "styled-components";
 import Link from "next/link";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion } from "framer-motion";
+import BodyText from "../components/BodyText";
+import HeaderText from "../components/HeaderText";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
     return (
-        <Main>
+        <main>
             <Container>
                 <Header>
                     <Link href="/home/portfolio">portfolio</Link>
                     <Link href="/home/photography">photography</Link>
                     <Link href="/home/writing">writing</Link>
-                    <Link href="/home/about me">about me</Link>
+                    <Link href="/home/about">about me</Link>
                 </Header>
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    layout
+                    initial={{ opacity: 0, marginTop: "-20px" }}
+                    animate={{ opacity: 1, marginTop: "0px" }}
                     transition={{ duration: 1.5, ease: "easeIn" }}
                 >
-                    <H1>i'm jake.</H1>
-                    <p>hi, happy you're here.</p>
-                    <p>i love making things with software, wood, and fabric.</p>
-                    <p>
+                    <HeaderText>i'm jake.</HeaderText>
+                    <BodyText>
+                        hi, happy you're here.
+                        <br />
+                        i love making things with software, wood, and fabric.
+                        <br />
                         i find when i'm using creative and analytical brainpower
                         together i "work" best.
-                    </p>
-                    <p>
+                        <br />
                         otherwise, you can find me climbing, surfing, or
                         running.
-                    </p>
-                    <p>i also love playing guitar, reading, cooking, etc.</p>
-                    <p>please make yourself at home on my website.</p>
+                        <br />
+                        i also love playing guitar, reading, cooking, etc.
+                        <br />
+                        please make yourself at home on my website.
+                        <br />
+                    </BodyText>
                 </motion.div>
-                <div>designed & coded by jake</div>
+                <Footer />
             </Container>
-        </Main>
+        </main>
     );
 }
-
-const Main = styled.main``;
 
 const Container = styled.div`
     display: flex;
@@ -48,13 +55,4 @@ const Container = styled.div`
     justify-content: space-between;
     min-height: 100vh;
     padding: 6rem;
-`;
-const Header = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-`;
-
-const H1 = styled.h1`
-    font-size: 8rem;
 `;

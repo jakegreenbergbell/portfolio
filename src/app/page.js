@@ -1,9 +1,11 @@
 "use client";
-// `app/page.js` is the UI for the `/` URL
+
 import Link from "next/link";
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import styled from "styled-components";
+import { SimpleButton } from "./components/Button";
+import { BodyText } from "./components/BodyText";
 
 export default function Page() {
     const baseText =
@@ -16,17 +18,13 @@ export default function Page() {
     );
 
     useEffect(() => {
-        const controls = animate(count, baseText.length, {
-            type: "tween", // Not really needed because adding a duration will force "tween"
+        let controls = animate(count, baseText.length, {
+            type: "tween",
             duration: 3,
             ease: "easeInOut",
         });
-        return controls.stop;
-    }, []);
-
-    useEffect(() => {
-        const controls = animate(time, 3, {
-            type: "tween", // Not really needed because adding a duration will force "tween"
+        controls = animate(time, 3, {
+            type: "tween",
             duration: 5,
             ease: "easeInOut",
         });
@@ -35,16 +33,18 @@ export default function Page() {
 
     return (
         <Container>
-            <Quote>
+            <BodyText>
                 <motion.span>{displayText}</motion.span>
-            </Quote>
+            </BodyText>
 
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3, delay: 3 }}
             >
-                <Link href="/home">enter site</Link>
+                <Link href="/home">
+                    <StyledButton title="enter site"></StyledButton>
+                </Link>
             </motion.div>
         </Container>
     );
@@ -58,4 +58,9 @@ const Container = styled.div`
     padding: 96px;
     padding-top: 20rem;
     min-height: 100vh;
+`;
+
+const StyledButton = styled(SimpleButton)`
+    margin-top: 10px;
+    margin-bottom: 10px;
 `;
