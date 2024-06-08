@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import styled from "styled-components";
-import { SimpleButton } from "./components/Button";
-import { BodyText } from "./components/BodyText";
+import SimpleButton from "./components/Button";
+import BodyText from "./components/BodyText";
 
 export default function Page() {
     const baseText =

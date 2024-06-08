@@ -9,6 +9,9 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 5, 10, 5;
 
+    --grey-rgb: rgb(154, 155, 155);
+    --grey2-rgb: rgb(233, 233, 233);
+
     --primary-glow: conic-gradient(
         from 180deg at 50% 50%,
         #16abff33 0deg,
@@ -40,7 +43,9 @@
     --card-border-rgb: 131, 134, 135;
 
     --header-fs: clamp(1.5rem, 2rem + 10vw, 8rem);
+    --header2-fs: clamp(1rem, 1.5rem + 10vw, 5rem);
     --body-fs: clamp(0.5rem, 0.5rem + 2vw, 1.5em);
+    --small-fs: clamp(0.6em, 0.7em + 1vw, 0.8em);
 }
 
 @media (prefers-color-scheme: dark) {
