@@ -9,6 +9,8 @@ import styled from "styled-components";
 import BodyText from "@/app/components/BodyText";
 import Image from "next/image";
 import ArticleComponent from "./ArticleComponent";
+import SimpleButton from "@/app/components/Button";
+import QuoteText from "@/app/components/QuoteText";
 
 const DailyBruinArticles = [
     {
@@ -70,25 +72,28 @@ export default function Page() {
         <main>
             <Container>
                 <StyledHeader />
-                <div>
-                    <HeaderText>writing</HeaderText>
+                <QuoteText>
+                    "one day I will find the right words, and they will be
+                    simple." -jack kerouac
+                </QuoteText>
+                <HeaderText>writing</HeaderText>
+                <TabButtonContainer>
+                    <SimpleButtonWithPadding title="daily bruin" />
+                    <SimpleButtonWithPadding title="essays" />
+                </TabButtonContainer>
 
-                    <Quote>
-                        "one day I will find the right words, and they will be
-                        simple." -jack kerouac
-                    </Quote>
-                    <motion.div
-                        layout
-                        initial={{ opacity: 0, marginTop: "-20px" }}
-                        animate={{ opacity: 1, marginTop: "0px" }}
-                        transition={{ duration: 1.5, ease: "easeIn" }}
-                    >
-                        {DailyBruinArticles.map((article) => {
-                            const { key, ...rest } = article;
-                            return <ArticleComponent key={key} {...rest} />;
-                        })}
-                    </motion.div>
-                </div>
+                <motion.div
+                    layout
+                    initial={{ opacity: 0, marginTop: "-20px" }}
+                    animate={{ opacity: 1, marginTop: "0px" }}
+                    transition={{ duration: 1.5, ease: "easeIn" }}
+                >
+                    {DailyBruinArticles.map((article) => {
+                        const { key, ...rest } = article;
+                        return <ArticleComponent key={key} {...rest} />;
+                    })}
+                </motion.div>
+
                 <StyledFooter>design & coded by Jake</StyledFooter>
             </Container>
         </main>
@@ -102,11 +107,11 @@ const Container = styled.div`
     padding: 6rem;
 `;
 
-const Quote = styled.div`
-    font-weight: 100;
-    font-size: var(--body-fs);
-    color: rgb(150 150 150);
+const SimpleButtonWithPadding = styled(SimpleButton)`
+    margin-right: 10px;
 `;
+
+const TabButtonContainer = styled.div``;
 
 const StyledFooter = styled.div`
     position: sticky;

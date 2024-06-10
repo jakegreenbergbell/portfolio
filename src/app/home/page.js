@@ -12,12 +12,7 @@ export default function Home() {
     return (
         <main>
             <Container>
-                <Header>
-                    <Link href="/home/portfolio">portfolio</Link>
-                    <Link href="/home/photography">photography</Link>
-                    <Link href="/home/writing">writing</Link>
-                    <Link href="/home/about">about me</Link>
-                </Header>
+                <Header />
                 <motion.div
                     layout
                     initial={{ opacity: 0, marginTop: "-20px" }}
@@ -33,10 +28,8 @@ export default function Home() {
                         i find when i'm using creative and analytical brainpower
                         together i "work" best.
                         <br />
-                        otherwise, you can find me climbing, surfing, or
-                        running.
-                        <br />
-                        i also love playing guitar, reading, cooking, etc.
+                        otherwise, you can find me climbing, surfing, running,
+                        playing guitar, or reading.
                         <br />
                         please make yourself at home on my website.
                         <br />

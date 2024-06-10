@@ -9,7 +9,7 @@ export default function Header(props) {
             <Link href="/home/portfolio">portfolio</Link>
             <Link href="/home/photography">photography</Link>
             <Link href="/home/writing">writing</Link>
-            <Link href="/home/about">about me</Link>
+            <Link href="/home/about">about</Link>
         </StyledHeader>
     );
 }
