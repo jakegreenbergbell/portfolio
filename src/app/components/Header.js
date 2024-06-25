@@ -8,7 +8,7 @@ export default function Header(props) {
         <StyledHeader className={className}>
             <Link href="/home/portfolio">portfolio</Link>
             <Link href="/home/photography">photography</Link>
-            <Link href="/home/writing">writing</Link>
+            <Link href="/home/writing">building</Link>
             <Link href="/home/about">about</Link>
         </StyledHeader>
     );
@@ -19,4 +19,5 @@ const StyledHeader = styled.div`
     flex-direction: row;
     justify-content: center;
     gap: 25px;
+    font-style: italic;
 `;

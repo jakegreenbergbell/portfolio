@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import BodyText from "../components/BodyText";
 import HeaderText from "../components/HeaderText";
@@ -11,6 +12,13 @@ import Footer from "../components/Footer";
 export default function Home() {
     return (
         <main>
+            <BackgroundImage
+                src="/background.png"
+                height="850"
+                width="850"
+                priority={true}
+                alt="Graph paper with California Poppy's drawn on"
+            />
             <Container>
                 <Header />
                 <motion.div
@@ -19,21 +27,10 @@ export default function Home() {
                     animate={{ opacity: 1, marginTop: "0px" }}
                     transition={{ duration: 1.5, ease: "easeIn" }}
                 >
-                    <HeaderText>i'm jake.</HeaderText>
-                    <BodyText>
-                        hi, happy you're here.
-                        <br />
-                        i love making things with software, wood, and fabric.
-                        <br />
-                        i find when i'm using creative and analytical brainpower
-                        together i "work" best.
-                        <br />
-                        otherwise, you can find me climbing, surfing, running,
-                        playing guitar, or reading.
-                        <br />
-                        please make yourself at home on my website.
-                        <br />
-                    </BodyText>
+                    <LargerBodyText>
+                        born & raised in berkeley, ca, jake greenberg-bell is an
+                        aspiring product designer.
+                    </LargerBodyText>
                 </motion.div>
                 <Footer />
             </Container>
@@ -48,4 +45,18 @@ const Container = styled.div`
     justify-content: space-between;
     min-height: 100vh;
     padding: 6rem;
+`;
+
+const BackgroundImage = styled(Image)`
+    position: absolute;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+`;
+
+const LargerBodyText = styled(BodyText)`
+    font-size: 34px;
+    margin-right: 20%;
+    margin-left: 20%;
 `;
