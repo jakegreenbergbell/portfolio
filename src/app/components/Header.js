@@ -6,6 +6,7 @@ export default function Header(props) {
 
     return (
         <StyledHeader className={className}>
+            <Link href="/home">home</Link>
             <Link href="/home/portfolio">portfolio</Link>
             <Link href="/home/photography">photography</Link>
             <Link href="/home/writing">building</Link>

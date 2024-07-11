@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <main>
             <BackgroundImage
-                src="/background.png"
+                src="/homebackground.png"
                 height="850"
                 width="850"
                 priority={true}
@@ -29,7 +29,7 @@ export default function Home() {
                 >
                     <LargerBodyText>
                         born & raised in berkeley, ca, jake greenberg-bell is an
-                        aspiring product designer.
+                        athlete, builder, and product designer.
                     </LargerBodyText>
                 </motion.div>
                 <Footer />

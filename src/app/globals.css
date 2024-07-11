@@ -6,8 +6,8 @@
         "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 5, 10, 5;
+    /* --background-start-rgb: 0, 0, 0; */
+    /* --background-end-rgb: 5, 10, 5; */
 
     --grey-rgb: rgb(154, 155, 155);
     --grey2-rgb: rgb(233, 233, 233);
@@ -37,7 +37,7 @@
         #00000080
     );
 
-    --callout-rgb: 238, 240, 241;
+    --callout-rgb: 255, 255, 255;
     --callout-border-rgb: 172, 175, 176;
     --card-rgb: 180, 185, 188;
     --card-border-rgb: 131, 134, 135;
@@ -77,7 +77,7 @@
             #ffffff80
         );
 
-        --callout-rgb: 20, 20, 20;
+        --callout-rgb: 255, 255, 255;
         --callout-border-rgb: 108, 108, 108;
         --card-rgb: 100, 100, 100;
         --card-border-rgb: 200, 200, 200;
