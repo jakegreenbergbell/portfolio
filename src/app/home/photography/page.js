@@ -68,8 +68,8 @@ export default function Page() {
                     height: "100%",
                 }}
             >
-                <Header />
-                <StyledMasonry columns={3}>
+                <StyledHeader />
+                <Masonry columns={3}>
                     {images.map((src, index) => (
                         <StyledPhoto
                             onClick={() => imageClick(index)}
@@ -77,15 +77,15 @@ export default function Page() {
                             src={src}
                         />
                     ))}
-                </StyledMasonry>
+                </Masonry>
                 <Footer />
             </Container>
         </main>
     );
 }
 
-const StyledMasonry = styled(Masonry)`
-    margin-top: 30px;
+const StyledHeader = styled(Header)`
+    margin-bottom: 30px;
 `;
 
 const StyledArrowBackIosIcon = styled(ArrowBackIosIcon)`
