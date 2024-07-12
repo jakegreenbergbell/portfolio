@@ -56,6 +56,5 @@ const BackgroundImage = styled(Image)`
 
 const LargerBodyText = styled(BodyText)`
     font-size: 34px;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin: 20%;
 `;

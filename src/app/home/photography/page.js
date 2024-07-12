@@ -19,44 +19,46 @@ export default function Page() {
 
     const imagePaths = [
         [
-            "/photography/sports/DSC_0278 copy.webp",
-            "/photography/sports/DSC_0367 copy.webp",
-            "/photography/sports/DSC_0650 copy.webp",
-            "/photography/sports/DSC_0993 copy.webp",
             "/photography/sports/DSC_2780 copy.webp",
-            "/photography/sports/DSC_6144 copy.webp",
-            "/photography/sports/DSC_6152 copy.webp",
-            "/photography/sports/DSC_6678 copy-2.webp",
+            "/photography/sports/IMG_3858 copy 2.webp",
             "/photography/sports/DSC_7387.webp",
+            "/photography/sports/IMG_7851 copy.webp",
             "/photography/sports/DSC_8555 copy.webp",
+            "/photography/sports/DSC_0650 copy.webp",
+            "/photography/sports/DSC_0367 copy.webp",
+            "/photography/sports/DSC_0993 copy.webp",
+            "/photography/sports/DSC_6144 copy.webp",
             "/photography/sports/DSC_9471.webp",
             "/photography/sports/IMG_2249 copy 2.webp",
-            "/photography/sports/IMG_3858 copy 2.webp",
-            "/photography/sports/IMG_7851 copy.webp",
-            "/photography/sports/IMG_8539 copy.webp",
+            "/photography/sports/DSC_6152 copy.webp",
+            "/photography/sports/DSC_6678 copy-2.webp",
+            "/photography/sports/DSC_0278 copy.webp",
             "/photography/sports/IMG_8758.webp",
         ],
         [
             "/photography/adventure/DSCF4120 copy 2.webp",
+            "/photography/adventure/IMG_6411 copy 3.webp",
+            "/photography/adventure/IMG_7450 copy.webp",
+
             "/photography/adventure/IMG_2915 2.webp",
             "/photography/adventure/IMG_4397 copy 2.webp",
+            "/photography/adventure/IMG_7101 copy 2.webp",
             "/photography/adventure/IMG_4674 copy 2.webp",
             "/photography/adventure/IMG_5342 copy 2.webp",
-            "/photography/adventure/IMG_6411 copy 3.webp",
             "/photography/adventure/IMG_6523 copy 2.webp",
             "/photography/adventure/IMG_6936 copy.webp",
             "/photography/adventure/IMG_6982 copy 2.webp",
-            "/photography/adventure/IMG_7101 copy 2.webp",
             "/photography/adventure/IMG_7138 copy 2.webp",
-            "/photography/adventure/IMG_7450 copy.webp",
             "/photography/adventure/IMG_7699 copy.webp",
         ],
         [
             "/photography/concerts/DSC_8879 copy.webp",
-            "/photography/concerts/DSC_8969 copy.webp",
-            "/photography/concerts/DSC_9048 copy 2.webp",
-            "/photography/concerts/DSC_9671 copy.webp",
+
             "/photography/concerts/IMG_0085 copy.webp",
+            "/photography/concerts/DSC_8969 copy.webp",
+            "/photography/concerts/DSC_9671 copy.webp",
+            "/photography/concerts/DSC_9048 copy 2.webp",
+
             "/photography/concerts/IMG_0301.webp",
         ],
     ];
@@ -149,11 +151,15 @@ export default function Page() {
                     second="adventure"
                     third="concerts"
                 />
-                <Masonry columns={3}>
-                    {selectedGenre === 0 && sportsImages}
-                    {selectedGenre === 1 && adventureImages}
-                    {selectedGenre === 2 && concertImages}
-                </Masonry>
+                <MasonryOne $selectedGenre={selectedGenre} columns={3}>
+                    {sportsImages}
+                </MasonryOne>
+                <MasonryTwo $selectedGenre={selectedGenre} columns={3}>
+                    {adventureImages}
+                </MasonryTwo>
+                <MasonryThree $selectedGenre={selectedGenre} columns={3}>
+                    {concertImages}
+                </MasonryThree>
                 <Footer />
             </Container>
         </main>
@@ -227,4 +233,14 @@ const Container = styled.div`
     padding-right: 3rem;
     padding-top: 6rem;
     padding-bottom: 6rem;
+`;
+
+const MasonryOne = styled(Masonry)`
+    display: ${(props) => (props.$selectedGenre == 0 ? "inherit" : "none")};
+`;
+const MasonryTwo = styled(Masonry)`
+    display: ${(props) => (props.$selectedGenre == 1 ? "inherit" : "none")};
+`;
+const MasonryThree = styled(Masonry)`
+    display: ${(props) => (props.$selectedGenre == 2 ? "inherit" : "none")};
 `;

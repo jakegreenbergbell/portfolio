@@ -26,7 +26,6 @@ export default function ToggleButton(props) {
             <StyledBackgroundSlider
                 animate={controls}
                 transition={{ type: "spring", duration: 0.5 }}
-                $selectedGenre={$selectedGenre}
             ></StyledBackgroundSlider>
 
             <ToggleFirstOption onClick={() => optionClick(0)}>
