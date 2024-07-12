@@ -2,20 +2,23 @@ import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
 export default function ToggleButton(props) {
-    const { first, second, $selectedGenre, setSelectedGenre } = props;
+    const { first, second, third, $selectedGenre, setSelectedGenre } = props;
     const controls = useAnimation();
 
-    const firstOptionClick = () => {
-        if ($selectedGenre === 0) return;
-        controls.start({ width: "67px", left: "5px" });
-        setSelectedGenre(0);
-    };
-
-    const secondOptionClick = () => {
-        if ($selectedGenre === 1) return;
-
-        controls.start({ width: "98px", left: "72px" });
-        setSelectedGenre(1);
+    const optionClick = (option) => {
+        if ($selectedGenre === option) return;
+        setSelectedGenre(option);
+        switch (option) {
+            case 0:
+                controls.start({ width: "67px", left: "5px" });
+                break;
+            case 1:
+                controls.start({ width: "98px", left: "72px" });
+                break;
+            case 2:
+                controls.start({ width: "88px", left: "168px" });
+                break;
+        }
     };
 
     return (
@@ -26,12 +29,15 @@ export default function ToggleButton(props) {
                 $selectedGenre={$selectedGenre}
             ></StyledBackgroundSlider>
 
-            <ToggleFirstOption onClick={() => firstOptionClick()}>
+            <ToggleFirstOption onClick={() => optionClick(0)}>
                 {first}
             </ToggleFirstOption>
-            <ToggleSecondOption onClick={() => secondOptionClick()}>
+            <ToggleSecondOption onClick={() => optionClick(1)}>
                 {second}
             </ToggleSecondOption>
+            <ToggleThirdOption onClick={() => optionClick(2)}>
+                {third}
+            </ToggleThirdOption>
         </StyledToggleContainer>
     );
 }
@@ -43,9 +49,8 @@ const StyledBackgroundSlider = styled(motion.div)`
     border-radius: 15px;
     z-index: 2;
     top: 5px;
-
-    width: ${(props) => (props.$selectedGenre === 0 ? "67px" : "98px")};
-    left: ${(props) => (props.$selectedGenre === 0 ? "5px" : "72px")};
+    width: 67px;
+    left: 5px;
 `;
 
 const StyledToggleContainer = styled.div`
@@ -57,26 +62,29 @@ const StyledToggleContainer = styled.div`
     z-index: 3;
 `;
 
-const ToggleFirstOption = styled.span`
+const ToggleOption = styled.span`
     z-index: 3;
-    margin-left: 10px;
-    margin-right: 5px;
     display: inline-block;
-    margin-bottom: 10px;
-    padding-top: 5px;
-    height: 20px;
     background-color: transparent;
     position: relative;
-    z-index: 3;
     pointer: cursor;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
 `;
 
-const ToggleSecondOption = styled.span`
+const ToggleFirstOption = styled(ToggleOption)`
+    margin-left: 10px;
+    margin-right: 5px;
+`;
+
+const ToggleSecondOption = styled(ToggleOption)`
+    margin-left: 5px;
+    margin-right: 5px;
+`;
+
+const ToggleThirdOption = styled(ToggleOption)`
     margin-left: 5px;
     margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: transparent;
-    position: relative;
-    z-index: 3;
 `;
