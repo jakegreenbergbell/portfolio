@@ -14,8 +14,7 @@ export default function Home() {
         <main>
             <BackgroundImage
                 src="/homebackground.png"
-                height="850"
-                width="850"
+                fill
                 priority={true}
                 alt="Graph paper with California Poppy's drawn on"
             />

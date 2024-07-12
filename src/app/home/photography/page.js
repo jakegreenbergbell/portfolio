@@ -8,26 +8,52 @@ import Masonry from "@mui/lab/Masonry";
 import bg from "../../../../public/photobackground2.jpeg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import SimpleButton from "@/app/components/Button";
+
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import ToggleButton from "@/app/components/ToggleButton";
 
 export default function Page() {
     const [currentImage, setCurrentImage] = useState(null);
+    const [selectedGenre, setSelectedGenre] = useState(0);
 
     const images = [
-        "/photography/7O3A5284.jpg",
-        "/photography/DSC_0215.jpg",
-        "/photography/DSC_1566.jpg",
-        "/photography/DSC_2871-Enhanced-NR_1.jpg",
-        "/photography/DSC_2884.jpg",
-        "/photography/DSC_4602-Enhanced-NR.jpg",
-        "/photography/DSC_5762.jpg",
-        "/photography/DSC_5981.jpg",
-        "/photography/DSC_6318.jpg",
-        "/photography/JC1.jpeg",
-        "/photography/JC5.jpeg",
-        "/photography/JC21.jpeg",
-        "/photography/JSC_0290.jpg",
-        "/photography/JSC_0447-Enhanced-NR.jpg",
+        "/photography/DSC_0278 copy 2.JPG",
+        "/photography/DSC_0367 copy 2.jpeg",
+        "/photography/DSC_0650 copy 2.JPG",
+        "/photography/DSC_0993 copy 2.JPG",
+        "/photography/DSC_2780 copy 2.JPG",
+        "/photography/DSC_6144 copy 2.JPG",
+        "/photography/DSC_6152 copy 2.JPG",
+        "/photography/DSC_6678 copy-2 copy.JPG",
+        "/photography/DSC_7387 copy.JPG",
+        "/photography/DSC_8555 copy 2.JPG",
+        "/photography/DSC_8879 copy 2.jpeg",
+        "/photography/DSC_8969 copy 2.jpeg",
+        "/photography/DSC_9048 copy 3.jpeg",
+        "/photography/DSC_9471 copy.JPG",
+        "/photography/DSC_9671 copy 2.JPG",
+        "/photography/DSCF4120 copy 3.JPG",
+        "/photography/IMG_0085 copy 2.jpeg",
+        "/photography/IMG_0301 copy.jpeg",
+        "/photography/IMG_2249 copy 3.JPG",
+        "/photography/IMG_2714 2 copy.JPG",
+        "/photography/IMG_2915 2 copy.JPG",
+        "/photography/IMG_3858 copy 3.JPG",
+        "/photography/IMG_4397 copy 3.JPG",
+        "/photography/IMG_4674 copy 3.JPG",
+        "/photography/IMG_5342 copy 3.JPG",
+        "/photography/IMG_6411 copy 4.jpeg",
+        "/photography/IMG_6523 copy 3.jpeg",
+        "/photography/IMG_6936 copy 2.jpeg",
+        "/photography/IMG_6982 copy 3.jpeg",
+        "/photography/IMG_7101 copy 3.jpeg",
+        "/photography/IMG_7138 copy 3.jpeg",
+        "/photography/IMG_7450 copy 2.jpeg",
+        "/photography/IMG_7699 copy 2.jpeg",
+        "/photography/IMG_7851 copy 2.jpeg",
+        "/photography/IMG_8539 copy 2.jpeg",
+        "/photography/IMG_8758 copy.jpeg",
     ];
 
     const imageClick = (index) => {
@@ -48,7 +74,10 @@ export default function Page() {
 
     const focusImage = (
         <>
-            <StyledHighlightOffIcon onClick={() => closeButtonClick()} />
+            <StyledHighlightOffIcon
+                fontSize="large"
+                onClick={() => closeButtonClick()}
+            />
             <StyledSinglePhotoContainer>
                 <StyledArrowBackIosIcon onClick={() => arrowBackwardClick()} />
                 <StyledSinglePhotoImage src={images[currentImage]} />
@@ -69,6 +98,12 @@ export default function Page() {
                 }}
             >
                 <StyledHeader />
+                <ToggleButton
+                    setSelectedGenre={setSelectedGenre}
+                    $selectedGenre={selectedGenre}
+                    first="sports"
+                    second="adventure"
+                />
                 <Masonry columns={3}>
                     {images.map((src, index) => (
                         <StyledPhoto
@@ -100,7 +135,7 @@ const StyledForwardIosIcon = styled(ArrowForwardIosIcon)`
 
 const StyledHighlightOffIcon = styled(HighlightOffIcon)`
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 20px;
     height: 30px;
@@ -114,7 +149,7 @@ const StyledSinglePhotoContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    position: absolute;
+    position: fixed;
     padding: 30px;
     gap: 20px;
     flex-grow: 1;
