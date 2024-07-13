@@ -7,7 +7,7 @@ export default function ToggleButton(props) {
 
     const optionClick = (option) => {
         if ($selectedGenre === option) return;
-        setSelectedGenre(option);
+
         switch (option) {
             case 0:
                 controls.start({ width: "67px", left: "5px" });
@@ -19,6 +19,7 @@ export default function ToggleButton(props) {
                 controls.start({ width: "88px", left: "168px" });
                 break;
         }
+        setSelectedGenre(option);
     };
 
     return (

@@ -4,11 +4,12 @@ import { useState, useMemo } from "react";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import styled from "styled-components";
-import Masonry from "@mui/lab/Masonry";
+// import Masonry from "@mui/lab/Masonry";
 import bg from "../../../../public/photobackground2.jpeg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SimpleButton from "@/app/components/Button";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ToggleButton from "@/app/components/ToggleButton";
@@ -53,12 +54,10 @@ export default function Page() {
         ],
         [
             "/photography/concerts/DSC_8879 copy.webp",
-
             "/photography/concerts/IMG_0085 copy.webp",
             "/photography/concerts/DSC_8969 copy.webp",
             "/photography/concerts/DSC_9671 copy.webp",
             "/photography/concerts/DSC_9048 copy 2.webp",
-
             "/photography/concerts/IMG_0301.webp",
         ],
     ];
@@ -151,7 +150,7 @@ export default function Page() {
                     second="adventure"
                     third="concerts"
                 />
-                <MasonryOne $selectedGenre={selectedGenre} columns={3}>
+                {/* <MasonryOne $selectedGenre={selectedGenre} columns={3}>
                     {sportsImages}
                 </MasonryOne>
                 <MasonryTwo $selectedGenre={selectedGenre} columns={3}>
@@ -159,7 +158,17 @@ export default function Page() {
                 </MasonryTwo>
                 <MasonryThree $selectedGenre={selectedGenre} columns={3}>
                     {concertImages}
-                </MasonryThree>
+                </MasonryThree> */}
+                {/* <Masonry columns={3}>
+                    {selectedGenre == 0 && sportsImages}
+                    {selectedGenre == 1 && adventureImages}
+                    {selectedGenre == 2 && concertImages}
+                </Masonry> */}
+                <Masonry columnsCount={3} gutter="10px">
+                    {selectedGenre == 0 && sportsImages}
+                    {selectedGenre == 1 && adventureImages}
+                    {selectedGenre == 2 && concertImages}
+                </Masonry>
                 <Footer />
             </Container>
         </main>
@@ -217,6 +226,7 @@ const StyledSinglePhotoImage = styled.img`
 
 const StyledPhoto = styled.img`
     transition: opacity 0.3s ease-out;
+
     &:hover {
         opacity: 0.5;
         cursor: pointer;
@@ -243,4 +253,11 @@ const MasonryTwo = styled(Masonry)`
 `;
 const MasonryThree = styled(Masonry)`
     display: ${(props) => (props.$selectedGenre == 2 ? "inherit" : "none")};
+`;
+
+const JakeMasonry = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    grid-auto-flow: dense;
 `;
