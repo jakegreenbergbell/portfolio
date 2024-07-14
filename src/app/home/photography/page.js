@@ -4,12 +4,11 @@ import { useState, useMemo } from "react";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import styled from "styled-components";
-// import Masonry from "@mui/lab/Masonry";
+import { motion } from "framer-motion";
 import bg from "../../../../public/photobackground2.jpeg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import SimpleButton from "@/app/components/Button";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Masonry from "react-responsive-masonry";
 
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ToggleButton from "@/app/components/ToggleButton";
@@ -20,45 +19,45 @@ export default function Page() {
 
     const imagePaths = [
         [
-            "/photography/sports/DSC_2780 copy.webp",
-            "/photography/sports/IMG_3858 copy 2.webp",
-            "/photography/sports/DSC_7387.webp",
-            "/photography/sports/IMG_7851 copy.webp",
-            "/photography/sports/DSC_8555 copy.webp",
-            "/photography/sports/DSC_0650 copy.webp",
-            "/photography/sports/DSC_0367 copy.webp",
-            "/photography/sports/DSC_0993 copy.webp",
-            "/photography/sports/DSC_6144 copy.webp",
-            "/photography/sports/DSC_9471.webp",
-            "/photography/sports/IMG_2249 copy 2.webp",
-            "/photography/sports/DSC_6152 copy.webp",
-            "/photography/sports/DSC_6678 copy-2.webp",
-            "/photography/sports/DSC_0278 copy.webp",
-            "/photography/sports/IMG_8758.webp",
+            "/photography/sports/DSC_0278 copy (2) copy.webp",
+            "/photography/sports/IMG_3858 copy 3.webp",
+            "/photography/sports/DSC_7387 (2) copy.webp",
+            "/photography/sports/IMG_7851 copy 2.webp",
+            "/photography/sports/DSC_8555 copy (2) copy.webp",
+            "/photography/sports/DSC_0650 copy (2) copy.webp",
+            "/photography/sports/DSC_0367 copy (2) copy.webp",
+            "/photography/sports/DSC_0993 copy (2) copy.webp",
+            "/photography/sports/DSC_6144 copy (2) copy.webp",
+            "/photography/sports/DSC_9471 (1) copy.webp",
+            "/photography/sports/DSC_6152 copy (2) copy.webp",
+            "/photography/sports/IMG_8539 copy 2.webp",
+            "/photography/sports/DSC_6678 copy-2 (2) copy.webp",
+            "/photography/sports/IMG_2249 copy 2 (1) copy.webp",
         ],
         [
-            "/photography/adventure/DSCF4120 copy 2.webp",
-            "/photography/adventure/IMG_6411 copy 3.webp",
-            "/photography/adventure/IMG_7450 copy.webp",
+            "/photography/adventure/DSCF4120 copy 2 (2) copy.webp",
+            "/photography/adventure/IMG_2714 2 copy.webp",
+            "/photography/adventure/IMG_2915 2 (1) copy.webp",
 
-            "/photography/adventure/IMG_2915 2.webp",
-            "/photography/adventure/IMG_4397 copy 2.webp",
-            "/photography/adventure/IMG_7101 copy 2.webp",
-            "/photography/adventure/IMG_4674 copy 2.webp",
-            "/photography/adventure/IMG_5342 copy 2.webp",
-            "/photography/adventure/IMG_6523 copy 2.webp",
-            "/photography/adventure/IMG_6936 copy.webp",
-            "/photography/adventure/IMG_6982 copy 2.webp",
-            "/photography/adventure/IMG_7138 copy 2.webp",
-            "/photography/adventure/IMG_7699 copy.webp",
+            "/photography/adventure/IMG_4397 copy 3.webp",
+            "/photography/adventure/IMG_7101 copy 3.webp",
+            "/photography/adventure/IMG_7450 copy 2.webp",
+            "/photography/adventure/IMG_6411 copy 4.webp",
+            "/photography/adventure/IMG_4674 copy 3.webp",
+            "/photography/adventure/IMG_6982 copy 3.webp",
+            "/photography/adventure/IMG_5342 copy 3.webp",
+            "/photography/adventure/IMG_6936 copy 2.webp",
+            "/photography/adventure/IMG_6523 copy 3.webp",
+            "/photography/adventure/IMG_7699 copy 2.webp",
+            "/photography/adventure/IMG_7138 copy 3.webp",
         ],
         [
-            "/photography/concerts/DSC_8879 copy.webp",
-            "/photography/concerts/IMG_0085 copy.webp",
-            "/photography/concerts/DSC_8969 copy.webp",
-            "/photography/concerts/DSC_9671 copy.webp",
-            "/photography/concerts/DSC_9048 copy 2.webp",
-            "/photography/concerts/IMG_0301.webp",
+            "/photography/concerts/DSC_8879 copy (2) copy.webp",
+            "/photography/concerts/IMG_0085 copy (1) copy.webp",
+            "/photography/concerts/DSC_8969 copy (2) copy.webp",
+            "/photography/concerts/IMG_0301 (1) copy.webp",
+            "/photography/concerts/DSC_9048 copy 2 (2) copy.webp",
+            "/photography/concerts/DSC_9671 copy (1) copy.webp",
         ],
     ];
 
@@ -95,12 +94,21 @@ export default function Page() {
         </>
     );
 
+    const delayTimes = Array.from(Array(15).keys()).map((elem) => elem * 0.1);
+
     const sportsImages = useMemo(
         () =>
             imagePaths[0].map((src, index) => (
                 <StyledPhoto
+                    key={`sports${index}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    whileHover={{
+                        opacity: 0.5,
+                        transition: { duration: 0.3 },
+                    }}
                     onClick={() => imageClick(index)}
-                    key={`img${index}`}
                     src={src}
                 />
             )),
@@ -111,8 +119,15 @@ export default function Page() {
         () =>
             imagePaths[1].map((src, index) => (
                 <StyledPhoto
+                    key={`adventure${index}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    whileHover={{
+                        opacity: 0.5,
+                        transition: { duration: 0.3 },
+                    }}
                     onClick={() => imageClick(index)}
-                    key={`img${index}`}
                     src={src}
                 />
             )),
@@ -123,8 +138,15 @@ export default function Page() {
         () =>
             imagePaths[2].map((src, index) => (
                 <StyledPhoto
+                    key={`concert${index}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    whileHover={{
+                        opacity: 0.5,
+                        transition: { duration: 0.3 },
+                    }}
                     onClick={() => imageClick(index)}
-                    key={`img${index}`}
                     src={src}
                 />
             )),
@@ -138,7 +160,7 @@ export default function Page() {
                 $currentImage={currentImage}
                 style={{
                     backgroundImage: `url(${bg.src})`,
-                    width: "100%",
+                    width: "100vw",
                     height: "100%",
                 }}
             >
@@ -150,20 +172,6 @@ export default function Page() {
                     second="adventure"
                     third="concerts"
                 />
-                {/* <MasonryOne $selectedGenre={selectedGenre} columns={3}>
-                    {sportsImages}
-                </MasonryOne>
-                <MasonryTwo $selectedGenre={selectedGenre} columns={3}>
-                    {adventureImages}
-                </MasonryTwo>
-                <MasonryThree $selectedGenre={selectedGenre} columns={3}>
-                    {concertImages}
-                </MasonryThree> */}
-                {/* <Masonry columns={3}>
-                    {selectedGenre == 0 && sportsImages}
-                    {selectedGenre == 1 && adventureImages}
-                    {selectedGenre == 2 && concertImages}
-                </Masonry> */}
                 <Masonry columnsCount={3} gutter="10px">
                     {selectedGenre == 0 && sportsImages}
                     {selectedGenre == 1 && adventureImages}
@@ -224,13 +232,8 @@ const StyledSinglePhotoImage = styled.img`
     object-fit: contain;
 `;
 
-const StyledPhoto = styled.img`
-    transition: opacity 0.3s ease-out;
-
-    &:hover {
-        opacity: 0.5;
-        cursor: pointer;
-    }
+const StyledPhoto = styled(motion.img)`
+    cursor: pointer;
 `;
 
 const Container = styled.div`
@@ -239,25 +242,9 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    width: 100vw;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 6rem;
     padding-bottom: 6rem;
-`;
-
-const MasonryOne = styled(Masonry)`
-    display: ${(props) => (props.$selectedGenre == 0 ? "inherit" : "none")};
-`;
-const MasonryTwo = styled(Masonry)`
-    display: ${(props) => (props.$selectedGenre == 1 ? "inherit" : "none")};
-`;
-const MasonryThree = styled(Masonry)`
-    display: ${(props) => (props.$selectedGenre == 2 ? "inherit" : "none")};
-`;
-
-const JakeMasonry = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    grid-auto-flow: dense;
 `;

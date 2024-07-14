@@ -9,7 +9,7 @@ export default function Header(props) {
             <Link href="/home">home</Link>
             <Link href="/home/portfolio">portfolio</Link>
             <Link href="/home/photography">photography</Link>
-            <Link href="/home/writing">building</Link>
+            {/* <Link href="/home/writing">building</Link> */}
             <Link href="/home/about">about</Link>
         </StyledHeader>
     );
