@@ -8,5 +8,5 @@ export default function BodyText(props) {
 
 const StyledText = styled.div`
     font-size: var(--body-fs);
-    font-weight: 200;
+    font-weight: 400;
 `;

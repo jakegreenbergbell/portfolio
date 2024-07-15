@@ -8,7 +8,7 @@ export default function QuoteText(props) {
 
 const StyledText = styled.div`
     font-size: var(--body-fs);
-    font-weight: 100;
+    font-weight: 200;
     color: rgb(150 150 150);
 
     margin-top: 50px;

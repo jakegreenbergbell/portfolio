@@ -50,7 +50,7 @@ const BackgroundImage = styled(Image)`
     position: absolute;
     z-index: -10;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     object-fit: cover;
 `;
 
