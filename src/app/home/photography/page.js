@@ -5,7 +5,7 @@ import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import bg from "../../../../public/photobackground2.jpeg";
+import bg from "../../../../public/photobackground2.webp";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Masonry from "react-responsive-masonry";

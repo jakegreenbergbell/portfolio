@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <main>
             <BackgroundImage
-                src="/homebackground.png"
+                src="/homebackground2.webp"
                 fill
                 priority={true}
                 alt="Graph paper with California Poppy's drawn on"

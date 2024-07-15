@@ -13,7 +13,7 @@ export default function About() {
     return (
         <main>
             <BackgroundImage
-                src="/aboutbackground.png"
+                src="/aboutbackground.webp"
                 height="850"
                 width="850"
                 priority={true}
