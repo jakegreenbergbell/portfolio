@@ -2,7 +2,15 @@ import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
 export default function ToggleButton(props) {
-    const { first, second, third, $selectedGenre, setSelectedGenre } = props;
+    const {
+        first,
+        second,
+        third,
+        $selectedGenre,
+        setSelectedGenre,
+        numberTimesGenreSelected,
+        setNumberTimesGenreSelected,
+    } = props;
     const controls = useAnimation();
 
     const optionClick = (option) => {
@@ -20,6 +28,12 @@ export default function ToggleButton(props) {
                 break;
         }
         setSelectedGenre(option);
+
+        // change tracker for which genre's selected if viewed for first time
+        if (numberTimesGenreSelected[option] > 1) return;
+        let newGenreSelected = { ...numberTimesGenreSelected };
+        newGenreSelected[option] += 1;
+        setNumberTimesGenreSelected(newGenreSelected);
     };
 
     return (

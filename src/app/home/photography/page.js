@@ -19,16 +19,17 @@ export default function Page() {
 
     const imagePaths = [
         [
-            "/photography/sports/DSC_0278 copy (2) copy.webp",
+            "/photography/sports/DSC_2780 copy (3) copy.webp",
             "/photography/sports/IMG_3858 copy 3.webp",
             "/photography/sports/DSC_7387 (2) copy.webp",
+            "/photography/sports/DSC_0650 copy (2) copy.webp",
+            "/photography/sports/DSC_0278 copy (2) copy.webp",
+            "/photography/sports/DSC_0367 copy (2) copy.webp",
             "/photography/sports/IMG_7851 copy 2.webp",
             "/photography/sports/DSC_8555 copy (2) copy.webp",
-            "/photography/sports/DSC_0650 copy (2) copy.webp",
-            "/photography/sports/DSC_0367 copy (2) copy.webp",
-            "/photography/sports/DSC_0993 copy (2) copy.webp",
-            "/photography/sports/DSC_6144 copy (2) copy.webp",
             "/photography/sports/DSC_9471 (1) copy.webp",
+            "/photography/sports/DSC_6144 copy (2) copy.webp",
+            "/photography/sports/DSC_0993 copy (2) copy.webp",
             "/photography/sports/DSC_6152 copy (2) copy.webp",
             "/photography/sports/IMG_8539 copy 2.webp",
             "/photography/sports/DSC_6678 copy-2 (2) copy.webp",
@@ -96,12 +97,22 @@ export default function Page() {
 
     const delayTimes = Array.from(Array(15).keys()).map((elem) => elem * 0.1);
 
+    const [numberTimesGenreSelected, setNumberTimesGenreSelected] = useState({
+        0: 1, // starts as 1 since page loads on it
+        1: 0,
+        2: 0,
+    });
+
     const sportsImages = useMemo(
         () =>
             imagePaths[0].map((src, index) => (
                 <StyledPhoto
                     key={`sports${index}`}
-                    initial={{ opacity: 0 }}
+                    initial={
+                        numberTimesGenreSelected[0] > 1
+                            ? { opacity: 1 }
+                            : { opacity: 0 }
+                    }
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: delayTimes[index] }}
                     whileHover={{
@@ -112,7 +123,7 @@ export default function Page() {
                     src={src}
                 />
             )),
-        []
+        [numberTimesGenreSelected, setNumberTimesGenreSelected]
     );
 
     const adventureImages = useMemo(
@@ -120,7 +131,11 @@ export default function Page() {
             imagePaths[1].map((src, index) => (
                 <StyledPhoto
                     key={`adventure${index}`}
-                    initial={{ opacity: 0 }}
+                    initial={
+                        numberTimesGenreSelected[1] > 1
+                            ? { opacity: 1 }
+                            : { opacity: 0 }
+                    }
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: delayTimes[index] }}
                     whileHover={{
@@ -131,7 +146,7 @@ export default function Page() {
                     src={src}
                 />
             )),
-        []
+        [numberTimesGenreSelected, setNumberTimesGenreSelected]
     );
 
     const concertImages = useMemo(
@@ -139,7 +154,11 @@ export default function Page() {
             imagePaths[2].map((src, index) => (
                 <StyledPhoto
                     key={`concert${index}`}
-                    initial={{ opacity: 0 }}
+                    initial={
+                        numberTimesGenreSelected[2] > 1
+                            ? { opacity: 1 }
+                            : { opacity: 0 }
+                    }
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: delayTimes[index] }}
                     whileHover={{
@@ -150,7 +169,7 @@ export default function Page() {
                     src={src}
                 />
             )),
-        []
+        [numberTimesGenreSelected, setNumberTimesGenreSelected]
     );
 
     return (
@@ -168,6 +187,8 @@ export default function Page() {
                 <ToggleButton
                     setSelectedGenre={setSelectedGenre}
                     $selectedGenre={selectedGenre}
+                    numberTimesGenreSelected={numberTimesGenreSelected}
+                    setNumberTimesGenreSelected={setNumberTimesGenreSelected}
                     first="sports"
                     second="adventure"
                     third="concerts"
