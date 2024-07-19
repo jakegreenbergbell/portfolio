@@ -28,20 +28,27 @@ export default function About() {
                 <HeaderText>about me</HeaderText>
 
                 <StyledBodyText>
-                    <div>
-                        bio goes here. bio goes here. bio goes here. bio goes
-                        here. bio goes here. bio goes here. bio goes here. bio
-                        goes here. bio goes here. bio goes here. bio goes here.
-                        bio goes here. bio goes here. bio goes here. bio goes
-                        here. bio goes here.
-                    </div>
-                    <div>
-                        bio goes here. bio goes here. bio goes here. bio goes
-                        here. bio goes here. bio goes here. bio goes here. bio
-                        goes here. bio goes here. bio goes here. bio goes here.
-                        bio goes here. bio goes here. bio goes here. bio goes
-                        here. bio goes here.
-                    </div>
+                    <FirstParagraph>
+                        &emsp; Thoughtful human creations have always created a
+                        resonance within my mind. They inspire our thinking,
+                        expand our boundaries, and remind us of our shared
+                        connections. As I honed my technological and business
+                        acumen, an ember of creative passion continued to
+                        smolder patiently within my heart; stoked by the
+                        creative aspects of my internships, schoolwork, and
+                        hobbies. I've found immense joy by unshackling these
+                        creative forces within myself. Imaging, designing, and
+                        creating.
+                    </FirstParagraph>
+                    <SecondParagraph>
+                        &emsp; I bring more than 7 years of full stack
+                        programming experience and professional internships at
+                        CloudBase Services, Front, and Cisco. As well as a
+                        degree in Computer Science from UCLA. Now building
+                        QuickAppSnap, an AI powered database documentation tool
+                        with fast growing four figure annual revenue. My name is
+                        Jake Greenberg-Bell and I am a product designer.
+                    </SecondParagraph>
                 </StyledBodyText>
 
                 <Footer />
@@ -65,8 +72,14 @@ const StyledBodyText = styled(BodyText)`
     padding-right: 6rem;
 `;
 
+const FirstParagraph = styled.div``;
+
+const SecondParagraph = styled.div`
+    margin-top: 20px;
+`;
+
 const BackgroundImage = styled(Image)`
-    position: absolute;
+    position: fixed;
     z-index: -10;
     height: 100%;
     width: 100%;
