@@ -8,6 +8,15 @@ import SimpleButton from "./components/Button";
 import BodyText from "./components/BodyText";
 
 export default function Page() {
+    // preload background image for home page
+    useEffect(() => {
+        const homebackground2 = new Image();
+        homebackground2.src = "/homebackground2.webp";
+
+        const aboutbackground = new Image();
+        aboutbackground.src = "/aboutbackground.webp";
+    }, []);
+
     const baseText =
         "until the very end, we are neurologically transformed by whatever we practice. we are not limited by the past. -jack kornfield ";
     const count = useMotionValue(0);
