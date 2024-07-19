@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg from "../../../../public/photobackground2.webp";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import Masonry from "react-responsive-masonry";
 
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
@@ -39,7 +39,6 @@ export default function Page() {
             "/photography/adventure/DSCF4120 copy 2 (2) copy.webp",
             "/photography/adventure/IMG_2714 2 copy.webp",
             "/photography/adventure/IMG_2915 2 (1) copy.webp",
-
             "/photography/adventure/IMG_4397 copy 3.webp",
             "/photography/adventure/IMG_7101 copy 3.webp",
             "/photography/adventure/IMG_7450 copy 2.webp",
@@ -66,34 +65,62 @@ export default function Page() {
         setCurrentImage(index);
     };
 
-    const arrowForwardClick = () => {
-        setCurrentImage((currentImage + 1) % imagePaths[selectedGenre].length);
-    };
-    const arrowBackwardClick = () => {
-        if (currentImage === 0)
-            setCurrentImage(imagePaths[selectedGenre].length - 1);
-        else setCurrentImage(currentImage - 1);
-    };
+    const FocusImage = () => {
+        const arrowForwardClick = () => {
+            setCurrentImage(
+                (currentImage + 1) % imagePaths[selectedGenre].length
+            );
+        };
+        const arrowBackwardClick = () => {
+            if (currentImage === 0)
+                setCurrentImage(imagePaths[selectedGenre].length - 1);
+            else setCurrentImage(currentImage - 1);
+        };
 
-    const closeButtonClick = () => {
-        setCurrentImage(null);
-    };
+        const closeButtonClick = () => {
+            setCurrentImage(null);
+        };
+        useEffect(() => {
+            const handleKeyDown = (event) => {
+                // Log the key pressed
+                if (event.key === "ArrowRight") {
+                    arrowForwardClick();
+                } else if (event.key === "ArrowLeft") {
+                    arrowBackwardClick();
+                }
+            };
 
-    const focusImage = (
-        <>
-            <StyledHighlightOffIcon
-                fontSize="large"
-                onClick={() => closeButtonClick()}
-            />
-            <StyledSinglePhotoContainer>
-                <StyledArrowBackIosIcon onClick={() => arrowBackwardClick()} />
-                <StyledSinglePhotoImage
-                    src={imagePaths[selectedGenre][currentImage]}
+            // Add the event listener
+            window.addEventListener("keydown", handleKeyDown);
+
+            // Clean up the event listener on component unmount
+            return () => {
+                window.removeEventListener("keydown", handleKeyDown);
+            };
+        }, []);
+
+        return (
+            <>
+                <StyledHighlightOffIcon
+                    fontSize="large"
+                    onClick={() => closeButtonClick()}
                 />
-                <StyledForwardIosIcon onClick={() => arrowForwardClick()} />
-            </StyledSinglePhotoContainer>
-        </>
-    );
+                <StyledSinglePhotoContainer>
+                    <StyledArrowBackIosIcon
+                        fontSize="large"
+                        onClick={() => arrowBackwardClick()}
+                    />
+                    <StyledSinglePhotoImage
+                        src={imagePaths[selectedGenre][currentImage]}
+                    />
+                    <StyledForwardIosIcon
+                        fontSize="large"
+                        onClick={() => arrowForwardClick()}
+                    />
+                </StyledSinglePhotoContainer>
+            </>
+        );
+    };
 
     const delayTimes = Array.from(Array(15).keys()).map((elem) => elem * 0.1);
 
@@ -174,7 +201,7 @@ export default function Page() {
 
     return (
         <main>
-            {currentImage !== null ? focusImage : <></>}
+            {currentImage !== null ? <FocusImage /> : <></>}
             <Container
                 $currentImage={currentImage}
                 style={{
@@ -208,13 +235,17 @@ const StyledHeader = styled(Header)`
     margin-bottom: 30px;
 `;
 
-const StyledArrowBackIosIcon = styled(ArrowBackIosIcon)`
+const StyledArrowBackIosIcon = styled(ArrowCircleLeftOutlinedIcon)`
     cursor: pointer;
+    height: 60px;
+    width: 60px;
     z-index: 1;
 `;
 
-const StyledForwardIosIcon = styled(ArrowForwardIosIcon)`
+const StyledForwardIosIcon = styled(ArrowCircleRightOutlinedIcon)`
     cursor: pointer;
+    height: 60px;
+    width: 60px;
     z-index: 1;
 `;
 
@@ -223,8 +254,8 @@ const StyledHighlightOffIcon = styled(HighlightOffIcon)`
     position: fixed;
     z-index: 2;
     top: 20px;
-    height: 30px;
-    width: 30px;
+    height: 60px;
+    width: 60px;
     right: 20px;
 `;
 
