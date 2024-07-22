@@ -213,7 +213,7 @@ export default function Page() {
                 <StyledHeader />
                 <ToggleButton
                     setSelectedGenre={setSelectedGenre}
-                    $selectedGenre={selectedGenre}
+                    selectedGenre={selectedGenre}
                     numberTimesGenreSelected={numberTimesGenreSelected}
                     setNumberTimesGenreSelected={setNumberTimesGenreSelected}
                     first="sports"
