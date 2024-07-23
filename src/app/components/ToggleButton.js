@@ -88,7 +88,7 @@ const StyledBackgroundSlider = styled(motion.div)`
 `;
 
 const StyledBackgroundHover = styled(motion.div)`
-    background: grey;
+    background: hsla(277, 18%, 50%, 0.15);
     height: 20px;
     position: absolute;
     border-radius: 15px;
