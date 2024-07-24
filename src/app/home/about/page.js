@@ -8,15 +8,13 @@ import HeaderText from "@/app/components/HeaderText";
 import BodyText from "@/app/components/BodyText";
 import Footer from "@/app/components/Footer";
 import QuoteText from "@/app/components/QuoteText";
+import BackgroundImage from "@/app/components/BackgroundImage";
 
 export default function About() {
     return (
         <main>
             <BackgroundImage
                 src="/aboutbackground.webp"
-                height="850"
-                width="850"
-                priority={true}
                 alt="Graph paper with California Poppy's drawn on"
             />
             <Container>
@@ -41,15 +39,15 @@ export default function About() {
                         transition={{ duration: 1, ease: "easeIn" }}
                     >
                         <FirstParagraph>
-                            &emsp; Thoughtful human creations have always
-                            created a resonance within my mind. They inspire our
-                            thinking, expand our boundaries, and remind us of
-                            our shared connections. As I honed my technological
-                            and business acumen, an ember of creative passion
-                            continued to smolder patiently within my heart;
-                            stoked by the creative aspects of my internships,
-                            schoolwork, and hobbies. I've found immense joy by
-                            unshackling these creative forces within myself.
+                            &emsp; Human creations inspire my thinking, expand
+                            my boundaries, and remind me of our shared
+                            connections as humans. Over nearly a decade, while I
+                            honed my technological, business, and product
+                            acumen, an ember of creative passion continued to
+                            smolder patiently within my heart. Stoked by the
+                            creative aspects of my internships, schoolwork, and
+                            hobbies. Now, I've found immense joy by unshackling
+                            and embracing these creative forces within myself.
                             Imaging, designing, and creating.
                         </FirstParagraph>
                         <SecondParagraph>
@@ -85,16 +83,11 @@ const StyledBodyText = styled(BodyText)`
     padding-right: 6rem;
 `;
 
-const FirstParagraph = styled.div``;
+const FirstParagraph = styled.div`
+    line-height: 1.4;
+`;
 
 const SecondParagraph = styled.div`
     margin-top: 20px;
-`;
-
-const BackgroundImage = styled(Image)`
-    position: fixed;
-    z-index: -10;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    line-height: 1.4;
 `;

@@ -7,15 +7,13 @@ import { motion } from "framer-motion";
 import HeaderText from "@/app/components/HeaderText";
 import BodyText from "@/app/components/BodyText";
 import Footer from "@/app/components/Footer";
+import BackgroundImage from "@/app/components/BackgroundImage";
 
 export default function Page() {
     return (
         <main>
             <BackgroundImage
                 src="/aboutbackground.webp"
-                height="850"
-                width="850"
-                priority={true}
                 alt="Graph paper with California Poppy's drawn on"
             />
             <Container>
@@ -67,11 +65,3 @@ const StyledBodyText = styled(BodyText)`
 `;
 
 const FirstParagraph = styled.div``;
-
-const BackgroundImage = styled(Image)`
-    position: fixed;
-    z-index: -10;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-`;

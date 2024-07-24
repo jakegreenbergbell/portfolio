@@ -1,21 +1,21 @@
 "use client";
 
 import styled from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import BodyText from "../components/BodyText";
-import HeaderText from "../components/HeaderText";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import BackgroundImage from "../components/BackgroundImage";
+import SpinningText from "../components/SpinningText";
 
 export default function Home() {
+    const text =
+        "born & raised in berkeley, ca, jake greenberg-bell is an athlete, builder, and product designer.";
+
     return (
         <main>
             <BackgroundImage
                 src="/homebackground2.webp"
-                fill
-                priority={true}
                 alt="Graph paper with California Poppy's drawn on"
             />
             <Container>
@@ -27,8 +27,7 @@ export default function Home() {
                     transition={{ duration: 1.5, ease: "easeIn" }}
                 >
                     <LargerBodyText>
-                        born & raised in berkeley, ca, jake greenberg-bell is an
-                        athlete, builder, and product designer.
+                        <SpinningText text={text} />
                     </LargerBodyText>
                 </motion.div>
                 <Footer />
@@ -46,15 +45,8 @@ const Container = styled.div`
     padding: 6rem;
 `;
 
-const BackgroundImage = styled(Image)`
-    position: absolute;
-    z-index: -10;
-    height: 100%;
-    width: 100vw;
-    object-fit: cover;
-`;
-
 const LargerBodyText = styled(BodyText)`
     font-size: 34px;
     margin: 20%;
+    line-height: 1.3;
 `;

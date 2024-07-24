@@ -31,17 +31,18 @@ export default function Page() {
             "/photography/sports/DSC_6144 copy (2) copy.webp",
             "/photography/sports/DSC_0993 copy (2) copy.webp",
             "/photography/sports/DSC_6152 copy (2) copy.webp",
-            "/photography/sports/IMG_8539 copy 2.webp",
             "/photography/sports/DSC_6678 copy-2 (2) copy.webp",
             "/photography/sports/IMG_2249 copy 2 (1) copy.webp",
+            "/photography/sports/IMG_8539 copy 2.webp",
         ],
         [
             "/photography/adventure/DSCF4120 copy 2 (2) copy.webp",
-            "/photography/adventure/IMG_2714 2 copy.webp",
+            "/photography/adventure/f16436736_copy_1_2200x1467_1.webp",
             "/photography/adventure/IMG_2915 2 (1) copy.webp",
             "/photography/adventure/IMG_4397 copy 3.webp",
             "/photography/adventure/IMG_7101 copy 3.webp",
             "/photography/adventure/IMG_7450 copy 2.webp",
+            "/photography/adventure/IMG_2714 2 copy.webp",
             "/photography/adventure/IMG_6411 copy 4.webp",
             "/photography/adventure/IMG_4674 copy 3.webp",
             "/photography/adventure/IMG_6982 copy 3.webp",
@@ -141,10 +142,11 @@ export default function Page() {
                             : { opacity: 0 }
                     }
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    transition={{ duration: 1 }}
                     whileHover={{
                         opacity: 0.5,
-                        transition: { duration: 0.3 },
+
+                        transition: { duration: 0.3, delay: 0 },
                     }}
                     onClick={() => imageClick(index)}
                     src={src}
@@ -164,7 +166,7 @@ export default function Page() {
                             : { opacity: 0 }
                     }
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    transition={{ duration: 1 }}
                     whileHover={{
                         opacity: 0.5,
                         transition: { duration: 0.3 },
@@ -187,7 +189,7 @@ export default function Page() {
                             : { opacity: 0 }
                     }
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: delayTimes[index] }}
+                    transition={{ duration: 1 }}
                     whileHover={{
                         opacity: 0.5,
                         transition: { duration: 0.3 },

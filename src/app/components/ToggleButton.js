@@ -15,9 +15,9 @@ export default function ToggleButton(props) {
     const genreHoverAnimator = useAnimation();
 
     const genrePositions = {
-        0: { width: "67px", left: "5px", opacity: 1 },
-        1: { width: "98px", left: "72px", opacity: 1 },
-        2: { width: "88px", left: "168px", opacity: 1 },
+        0: { width: "58px", left: "5px", opacity: 1 },
+        1: { width: "89px", left: "62px", opacity: 1 },
+        2: { width: "79px", left: "149px", opacity: 1 },
         3: { opacity: 0 },
     };
 
@@ -83,19 +83,13 @@ const StyledBackgroundSlider = styled(motion.div)`
     border-radius: 15px;
     z-index: 3;
     top: 5px;
-    width: 67px;
+    width: 58px;
     left: 5px;
 `;
 
-const StyledBackgroundHover = styled(motion.div)`
+const StyledBackgroundHover = styled(StyledBackgroundSlider)`
     background: hsla(277, 18%, 50%, 0.15);
-    height: 20px;
-    position: absolute;
-    border-radius: 15px;
     z-index: 2;
-    top: 5px;
-    width: 67px;
-    left: 5px;
 `;
 
 const StyledToggleContainer = styled.div`

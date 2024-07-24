@@ -7,14 +7,14 @@ export default function Header(props) {
 
     const HoverableDiv = (link, title) => {
         return (
-            <motion.div
+            <StyledHeaderOption
                 whileHover={{
                     opacity: 0.5,
                     transition: { duration: 0.3 },
                 }}
             >
                 <Link href={link}>{title}</Link>
-            </motion.div>
+            </StyledHeaderOption>
         );
     };
 
@@ -29,11 +29,14 @@ export default function Header(props) {
     );
 }
 
+const StyledHeaderOption = styled(motion.div)`
+    border-radius: 5px;
+`;
+
 const StyledHeader = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 25px;
-    font-style: italic;
-    font-weight: 200;
+    font-weight: 400;
 `;
