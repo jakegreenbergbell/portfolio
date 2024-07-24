@@ -3,20 +3,26 @@ import styled from "styled-components";
 
 export default function SpinningText(props) {
     const { text } = props;
-    const animateCharacterHoverArray = text.split("").map(() => useAnimation());
 
-    const spinningLetter = (letter, index) =>
+    const textSplitOnSpacesArray = text.split(" ");
+    let text2dArray = textSplitOnSpacesArray.map((elem) => elem.split(""));
+    text2dArray = text2dArray.map((subArray) => [...subArray, " "]);
+    const animateCharacterHoverArray = text2dArray.map((subArray) =>
+        subArray.map(() => useAnimation())
+    );
+
+    const spinningLetter = (letter, wordIndex, charIndex) =>
         // prettier-ignore
         <StyledCharacter
-        key={index}
-        animate={animateCharacterHoverArray[index]}
+        key={`letter${wordIndex}${charIndex}`}
+        animate={animateCharacterHoverArray[wordIndex][charIndex]}
         onHoverStart={() => {
-            animateCharacterHoverArray[index].start({
+            animateCharacterHoverArray[wordIndex][charIndex].start({
                 rotateX: 360,
                 transition: { duration: 0.8, ease: "easeOut" },
             }).then(() => {
                 // Reset rotation after the animation completes
-                animateCharacterHoverArray[index].set({ rotateX: 0 });
+                animateCharacterHoverArray[wordIndex][charIndex].set({ rotateX: 0 });
             });
           }}
     >
@@ -24,11 +30,15 @@ export default function SpinningText(props) {
     </StyledCharacter>;
 
     return (
-        <>
-            {Array.from(text).map((char, index) => {
-                return spinningLetter(char, index);
-            })}
-        </>
+        <StyledWord>
+            {text2dArray.map((wordArray, wordIndex) => (
+                <StyledWord key={`word${wordIndex}`}>
+                    {wordArray.map((char, charIndex) =>
+                        spinningLetter(char, wordIndex, charIndex)
+                    )}
+                </StyledWord>
+            ))}
+        </StyledWord>
     );
 }
 
@@ -36,4 +46,8 @@ const StyledCharacter = styled(motion.span)`
     display: inline-block;
     white-space: pre;
     perspective: 1000px;
+`;
+
+const StyledWord = styled.div`
+    display: inline-block;
 `;

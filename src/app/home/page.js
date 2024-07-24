@@ -42,11 +42,11 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
-    padding: 6rem;
+    padding: 10vw;
 `;
 
 const LargerBodyText = styled(BodyText)`
     font-size: 34px;
-    margin: 20%;
+    margin: 10vw;
     line-height: 1.3;
 `;
