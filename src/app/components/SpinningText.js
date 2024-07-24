@@ -4,9 +4,19 @@ import styled from "styled-components";
 export default function SpinningText(props) {
     const { text } = props;
 
-    const textSplitOnSpacesArray = text.split(" ");
+    let textSplitOnSpacesArray = text.split(" ");
+    textSplitOnSpacesArray = textSplitOnSpacesArray.reduce(
+        (acc, current, index) => {
+            if (index < textSplitOnSpacesArray.length - 1) {
+                return [...acc, current, " "];
+            } else {
+                return [...acc, current];
+            }
+        },
+        []
+    );
     let text2dArray = textSplitOnSpacesArray.map((elem) => elem.split(""));
-    text2dArray = text2dArray.map((subArray) => [...subArray, " "]);
+    // text2dArray = text2dArray.map((subArray) => [...subArray, " "]);
     const animateCharacterHoverArray = text2dArray.map((subArray) =>
         subArray.map(() => useAnimation())
     );
@@ -43,7 +53,7 @@ export default function SpinningText(props) {
 }
 
 const StyledCharacter = styled(motion.span)`
-    display: inline-block;
+    display: inline;
     white-space: pre;
     perspective: 1000px;
 `;
