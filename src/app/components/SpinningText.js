@@ -42,7 +42,10 @@ export default function SpinningText(props) {
     return (
         <StyledWord>
             {text2dArray.map((wordArray, wordIndex) => (
-                <StyledWord key={`word${wordIndex}`}>
+                <StyledWord
+                    key={`word${wordIndex}`}
+                    style={wordIndex === 14 ? { "white-space": "nowrap" } : {}}
+                >
                     {wordArray.map((char, charIndex) =>
                         spinningLetter(char, wordIndex, charIndex)
                     )}
@@ -53,7 +56,7 @@ export default function SpinningText(props) {
 }
 
 const StyledCharacter = styled(motion.span)`
-    display: inline;
+    display: inline-block;
     white-space: pre;
     perspective: 1000px;
 `;
