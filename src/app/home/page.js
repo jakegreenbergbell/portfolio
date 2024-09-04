@@ -14,8 +14,6 @@ export default function Home() {
     const text =
         "born & raised in berkeley, ca, jake greenberg-bell is an athlete, builder, software engineer, and product designer.";
 
-    const AnimatedImage = motion(StyledBackgroundBird);
-
     return (
         <main>
             <BackgroundImage

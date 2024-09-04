@@ -64,7 +64,7 @@ const Quote = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 96px;
+    padding: 10vw;
     padding-top: 20rem;
     min-height: 100vh;
 `;
