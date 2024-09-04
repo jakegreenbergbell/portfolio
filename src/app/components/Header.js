@@ -24,7 +24,7 @@ export default function Header(props) {
             {/* {HoverableDiv("/home/portfolio", "portfolio")} */}
             {HoverableDiv("/home/photography", "photography")}
             {/* {HoverableDiv("/home/writing", "writing")} */}
-            {HoverableDiv("/home/about", "about")}
+            {/* {HoverableDiv("/home/about", "about")} */}
         </StyledHeader>
     );
 }

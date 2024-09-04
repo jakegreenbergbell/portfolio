@@ -12,7 +12,7 @@ import FlyingBird from "../components/FlyingBird";
 
 export default function Home() {
     const text =
-        "born & raised in berkeley, ca, jake greenberg-bell is an athlete, builder, software engineer, and product designer.";
+        "born & raised in berkeley, ca, jake greenberg-bell is a multidisciplinary creator with a passion for technology, design, and innovation.";
 
     return (
         <main>
@@ -80,7 +80,10 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
-    padding: 10vw;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
 `;
 
 const LargerBodyText = styled(BodyText)`

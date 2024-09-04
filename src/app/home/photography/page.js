@@ -213,15 +213,19 @@ export default function Page() {
                 }}
             >
                 <StyledHeader />
-                <ToggleButton
-                    setSelectedGenre={setSelectedGenre}
-                    selectedGenre={selectedGenre}
-                    numberTimesGenreSelected={numberTimesGenreSelected}
-                    setNumberTimesGenreSelected={setNumberTimesGenreSelected}
-                    first="sports"
-                    second="adventure"
-                    third="concerts"
-                />
+                <ToggleButtonContainer>
+                    <ToggleButton
+                        setSelectedGenre={setSelectedGenre}
+                        selectedGenre={selectedGenre}
+                        numberTimesGenreSelected={numberTimesGenreSelected}
+                        setNumberTimesGenreSelected={
+                            setNumberTimesGenreSelected
+                        }
+                        first="sports"
+                        second="adventure"
+                        third="concerts"
+                    />
+                </ToggleButtonContainer>
                 <Masonry columnsCount={3} gutter="10px">
                     {selectedGenre == 0 && sportsImages}
                     {selectedGenre == 1 && adventureImages}
@@ -297,8 +301,12 @@ const Container = styled.div`
     align-items: center;
     min-height: 100vh;
     width: 100vw;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
     padding-left: 3rem;
     padding-right: 3rem;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+`;
+
+const ToggleButtonContainer = styled.div`
+    padding-top: 30px;
 `;
