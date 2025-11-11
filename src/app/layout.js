@@ -12,16 +12,14 @@ export const garamond = EB_Garamond({
     variable: "--font-garamond",
 });
 
+export const metadata = {
+    title: "Jake Greenberg-Bell",
+    description: "Jake Greenberg-Bell's personal website",
+};
+
 export default function RootLayout({ children }) {
     return (
-        <html className={inter.className}>
-            <head>
-                <title>Jake Greenberg-Bell</title>
-                <meta
-                    name="Jake Greenberg-Bell"
-                    content="Jake Greenberg-Bell's personal website"
-                />
-            </head>
+        <html lang="en" className={inter.className}>
             <body>
                 <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
             </body>

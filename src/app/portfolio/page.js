@@ -31,7 +31,6 @@ export default function Page() {
         </main>
     );
 }
-
 const PortfolioContainer = styled.div`
     display: flex;
     flex-direction: column;
