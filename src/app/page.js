@@ -51,7 +51,7 @@ export default function Page() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3, delay: 3.5 }}
             >
-                <Link href="/home/portfolio">
+                <Link href="/portfolio">
                     <StyledButton title="enter site"></StyledButton>
                 </Link>
             </motion.div>

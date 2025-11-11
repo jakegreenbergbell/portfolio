@@ -12,6 +12,7 @@ export default function PortfolioEntry(props) {
                     src={photoSrc}
                     alt={photoAlt}
                     placeholder="blur"
+                    blurDataURL="/blur.png"
                     objectFit="cover"
                     fill
                 />
