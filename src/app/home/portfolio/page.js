@@ -7,54 +7,62 @@ import { motion } from "framer-motion";
 import HeaderText from "@/app/components/HeaderText";
 import BodyText from "@/app/components/BodyText";
 import Footer from "@/app/components/Footer";
-import BackgroundImage from "@/app/components/BackgroundImage";
+import { garamond } from "@/app/layout";
+import PortfolioEntry from "@/app/components/PortfolioEntry";
 
 export default function Page() {
     return (
         <main>
-            <BackgroundImage
-                src="/aboutbackground.webp"
-                alt="Graph paper with California Poppy's drawn on"
-            />
             <Container>
                 <Header />
-                <motion.div
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeIn" }}
-                >
-                    <StyledHeaderText>portfolio</StyledHeaderText>
-                </motion.div>
-
-                <StyledBodyText>
-                    <motion.div
-                        layout
-                        initial={{ opacity: 0, marginTop: "-10px" }}
-                        animate={{ opacity: 1, marginTop: "0px" }}
-                        transition={{ duration: 1, ease: "easeIn" }}
-                    >
-                        <FirstParagraph>
-                            under construction... but thanks for coming!
-                        </FirstParagraph>
-                    </motion.div>
-                </StyledBodyText>
+                <PortfolioContainer>
+                    <PortfolioEntry
+                        title="focus mode"
+                        subtitle="designing focus into the front experience"
+                        photoSrc="/focusmode.svg"
+                        photoAlt="photoAlt"
+                        link="/home/portfolio/focusmode"
+                    />
+                    <PortfolioEntry
+                        title="demo magic"
+                        subtitle="the creation of effortless live demoing"
+                        photoSrc="/demomagic.svg"
+                        photoAlt="photoAlt"
+                        link="/home/portfolio/demomagic"
+                    />
+                </PortfolioContainer>
                 <Footer />
             </Container>
         </main>
     );
 }
 
-const Container = styled.div`
+const PortfolioContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 6rem;
+    flex: 1;
+    align-self: stretch;
+    padding-top: 6vh;
+    gap: 3vh;
+    filter: grayscale(100%);
+
+    &:hover {
+        filter: grayscale(0%);
+        transition: filter 0.3s ease-in-out;
+    }
 `;
 
-const StyledHeaderText = styled(HeaderText)`
-    margin-top: 80px;
+const Container = styled.div`
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8vh;
+    padding-bottom: 2vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: rgb(251, 251, 251);
 `;
 
 const StyledBodyText = styled(BodyText)`
@@ -64,4 +72,25 @@ const StyledBodyText = styled(BodyText)`
     padding-right: 6rem;
 `;
 
-const FirstParagraph = styled.div``;
+const StyledQuoteContainer = styled(motion.div)`
+    font-size: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-size: 35px;
+    height: calc(100vh - 6rem);
+    width: 100vw;
+    padding-left: 70px;
+    padding-right: 70px;
+    letter-spacing: 2px;
+`;
+
+const QuotePadding = styled.div`
+    padding-top: 20vh;
+`;
+const FirstParagraph = styled.p``;
+const RightParagraph = styled(motion.p)`
+    text-align: right;
+    padding-left: 50px;
+`;

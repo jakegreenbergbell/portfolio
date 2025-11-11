@@ -49,18 +49,16 @@ export default function Page() {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 3, delay: 3 }}
+                transition={{ duration: 3, delay: 3.5 }}
             >
-                <Link href="/home">
+                <Link href="/home/portfolio">
                     <StyledButton title="enter site"></StyledButton>
                 </Link>
             </motion.div>
         </Container>
     );
 }
-const Quote = styled.div`
-    font-size: 2rem;
-`;
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;

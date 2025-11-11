@@ -20,9 +20,9 @@ export default function Header(props) {
 
     return (
         <StyledHeader className={className}>
-            {HoverableDiv("/home", "home")}
-            {/* {HoverableDiv("/home/portfolio", "portfolio")} */}
-            {HoverableDiv("/home/photography", "photography")}
+            {HoverableDiv("/home/portfolio", "portfolio")}
+            {HoverableDiv("/home", "about")}
+            {/* {HoverableDiv("/home/photography", "photography")} */}
             {/* {HoverableDiv("/home/writing", "writing")} */}
             {/* {HoverableDiv("/home/about", "about")} */}
         </StyledHeader>

@@ -56,6 +56,18 @@ export default function Home() {
                 height={27}
                 width={27}
             />
+            <FlyingBird
+                src={"/birdflockright.gif"}
+                initialLeft="-60px"
+                initialTop="25vh"
+                animateLeft="100vw"
+                animateTop="26vh"
+                durLeft="26"
+                durTop="2"
+                delay={15}
+                height={30}
+                width={30}
+            />
             <Container>
                 <Header />
                 <motion.div
@@ -90,12 +102,4 @@ const LargerBodyText = styled(BodyText)`
     font-size: 34px;
     margin: 10vw;
     line-height: 1.3;
-`;
-
-const StyledBackgroundBird = styled(Image)`
-    z-index: -10;
-    opacity: 0.7;
-    position: fixed;
-    overflow: hidden;
-    pointer-events: none;
 `;

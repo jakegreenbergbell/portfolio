@@ -8,11 +8,11 @@ export default function SimpleButton(props) {
     return (
         <StyledButton
             whileHover={{
-                backgroundColor: "rgb(162 132 197)",
-                transition: { duration: 0.1 },
+                backgroundColor: "hsl(268 44% 85%)",
+                transition: { duration: 0.3 },
             }}
             whileTap={{
-                backgroundColor: "rgb(146 103 196)",
+                backgroundColor: "hsl(268 44% 75%)",
                 transition: { duration: 0.1 },
             }}
             className={className}
@@ -29,6 +29,7 @@ const StyledButton = styled(motion.button)`
     cursor: pointer;
     font-size: 1em;
 
-    background-color: rgb(146 103 196);
+    background-color: hsl(267 44% 95%);
+    color: hsl(268 45% 39%);
     padding: 3px 7px 3px 7px;
 `;
