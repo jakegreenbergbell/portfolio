@@ -92,7 +92,7 @@ const Container = styled.div`
     justify-content: space-between;
     min-height: 100vh;
     padding-top: 8vh;
-    padding-bottom: 8vh;
+    padding-bottom: 2vh;
     padding-left: 10vw;
     padding-right: 10vw;
 `;
