@@ -8,7 +8,13 @@ export default function PortfolioEntry(props) {
     return (
         <PortolioEntryContainer href={link}>
             <PhotoContainer>
-                <Image src={photoSrc} alt={photoAlt} objectFit="cover" fill />
+                <Image
+                    src={photoSrc}
+                    alt={photoAlt}
+                    placeholder="blur"
+                    objectFit="cover"
+                    fill
+                />
             </PhotoContainer>
             <TextContainer
                 whileHover={{

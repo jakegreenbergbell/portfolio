@@ -18,7 +18,7 @@ export default function Page() {
     }, []);
 
     const baseText =
-        "until the very end, we are neurologically transformed by whatever we practice. we are not limited by the past. -jack kornfield ";
+        "“a master in the art of living makes little distinction between his work and his play, his labor and his leisure. he simply pursues his vision of excellence through whatever he is doing, and leaves others to decide whether he is working or playing.” - l.p. jacks";
     const count = useMotionValue(0);
     const time = useMotionValue(0);
     const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -29,7 +29,7 @@ export default function Page() {
     useEffect(() => {
         let controls = animate(count, baseText.length, {
             type: "tween",
-            duration: 3,
+            duration: 5,
             ease: "easeInOut",
         });
         controls = animate(time, 3, {

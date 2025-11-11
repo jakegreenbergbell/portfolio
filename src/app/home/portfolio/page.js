@@ -1,13 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import styled from "styled-components";
 import Header from "@/app/components/Header";
-import { motion } from "framer-motion";
-import HeaderText from "@/app/components/HeaderText";
-import BodyText from "@/app/components/BodyText";
 import Footer from "@/app/components/Footer";
-import { garamond } from "@/app/layout";
 import PortfolioEntry from "@/app/components/PortfolioEntry";
 
 export default function Page() {
@@ -63,34 +58,4 @@ const Container = styled.div`
     padding-left: 10vw;
     padding-right: 10vw;
     background-color: rgb(251, 251, 251);
-`;
-
-const StyledBodyText = styled(BodyText)`
-    width: 100vw;
-    padding-top: 50px;
-    padding-left: 6rem;
-    padding-right: 6rem;
-`;
-
-const StyledQuoteContainer = styled(motion.div)`
-    font-size: 35px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    font-size: 35px;
-    height: calc(100vh - 6rem);
-    width: 100vw;
-    padding-left: 70px;
-    padding-right: 70px;
-    letter-spacing: 2px;
-`;
-
-const QuotePadding = styled.div`
-    padding-top: 20vh;
-`;
-const FirstParagraph = styled.p``;
-const RightParagraph = styled(motion.p)`
-    text-align: right;
-    padding-left: 50px;
 `;
