@@ -34,8 +34,8 @@ export default function PortfolioEntry(props) {
 
 const PhotoContainer = styled.div`
     position: relative;
-    width: 170px;
-    height: 113px;
+    width: 335px;
+    height: 229px;
     overflow: hidden;
 
     img {
@@ -49,11 +49,9 @@ const PortolioEntryContainer = styled(Link)`
     width: auto;
     height: auto;
     gap: 18px;
-    filter: grayscale(100%);
     overflow: hidden;
 
     &:hover {
-        filter: grayscale(0%);
         transition: filter 0.3s ease-in-out;
         cursor: pointer;
 
@@ -77,4 +75,5 @@ const Header = styled.div`
 
 const Subtitle = styled.div`
     font-size: var(--subtitle2-fs);
+    color: var(--h2-gray);
 `;

@@ -201,8 +201,8 @@ export default function FocusMode() {
                         <Image
                             src="/focusmodeimages/image6.png"
                             alt="Focus Mode setup journey screens"
-                            width={1000}
-                            height={625}
+                            width={750}
+                            height={469}
                         />
                     </CenteredImage>
 

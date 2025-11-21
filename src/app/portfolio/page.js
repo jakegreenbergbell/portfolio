@@ -38,10 +38,8 @@ const PortfolioContainer = styled.div`
     align-self: stretch;
     padding-top: 6vh;
     gap: 3vh;
-    filter: grayscale(100%);
 
     &:hover {
-        filter: grayscale(0%);
         transition: filter 0.3s ease-in-out;
     }
 `;

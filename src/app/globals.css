@@ -9,8 +9,10 @@
     /* --background-start-rgb: 0, 0, 0; */
     /* --background-end-rgb: 5, 10, 5; */
 
-    --grey-rgb: rgb(154, 155, 155);
+    --grey-rgb: rgb(118, 118, 118);
     --grey2-rgb: rgb(233, 233, 233);
+
+    --h2-gray: rgb(102, 102, 102);
 
     --primary-glow: conic-gradient(
         from 180deg at 50% 50%,
@@ -47,8 +49,8 @@
     --body-fs: clamp(0.5rem, calc(0.5rem + 2vw), 1.5em);
     --small-fs: clamp(0.6em, calc(0.7em + 1vw), 0.8em);
 
-    --header2-fs: 28px;
-    --subtitle2-fs: 18px;
+    --header2-fs: 58px;
+    --subtitle2-fs: 24px;
 }
 
 /* @media (prefers-color-scheme: dark) {
