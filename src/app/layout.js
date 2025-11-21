@@ -14,7 +14,7 @@ export const garamond = EB_Garamond({
 
 export const metadata = {
     title: "Jake Greenberg-Bell",
-    description: "Jake Greenberg-Bell's personal website",
+    description: "Jake Greenberg-Bell's design portfolio",
 };
 
 export default function RootLayout({ children }) {

@@ -12,18 +12,18 @@ export default function Page() {
                 <Header />
                 <PortfolioContainer>
                     <PortfolioEntry
-                        title="focus mode"
-                        subtitle="designing focus into the front experience"
-                        photoSrc="/focusmode.svg"
-                        photoAlt="photoAlt"
-                        link="/portfolio/focusmode"
-                    />
-                    <PortfolioEntry
                         title="demo magic"
                         subtitle="the creation of effortless live demoing"
                         photoSrc="/demomagic.svg"
                         photoAlt="photoAlt"
                         link="/portfolio/demomagic"
+                    />
+                    <PortfolioEntry
+                        title="focus mode"
+                        subtitle="designing focus into the front experience"
+                        photoSrc="/focusmode.svg"
+                        photoAlt="photoAlt"
+                        link="/portfolio/focusmode"
                     />
                 </PortfolioContainer>
                 <Footer />
